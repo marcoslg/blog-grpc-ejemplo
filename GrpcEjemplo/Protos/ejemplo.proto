@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcEjemplo.Protos";
+
+import "google/protobuf/timestamp.proto";
+
+service WeatherService {
+	rpc send(Location) returns (Temperature);
+}
+
+message Location {
+	string City = 1;
+	google.protobuf.Timestamp Day = 2;	
+}
+
+message Temperature {
+	double Celsius = 1;	
+}
